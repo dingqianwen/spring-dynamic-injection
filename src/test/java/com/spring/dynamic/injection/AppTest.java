@@ -4,6 +4,7 @@ import com.spring.dynamic.injection.annotation.DynamicInjection;
 import com.spring.dynamic.injection.service.OrderService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.MDC;
@@ -22,15 +23,19 @@ import java.util.UUID;
 @ActiveProfiles("local")
 public class AppTest {
 
-    @DynamicInjection(value = "${test:orderServiceEsImpl}")
+    @DynamicInjection(value = "${order-service.impl:orderServiceEsImpl}")
     private OrderService orderService;
 
     @SneakyThrows
     @Test
     public void test() {
-        MDC.put("requestId", UUID.randomUUID().toString());
         String result = this.orderService.query();
         log.info("调用完毕：" + result);
+    }
+
+    @Before
+    public void bef() {
+        MDC.put("requestId", UUID.randomUUID().toString());
     }
 
 }
