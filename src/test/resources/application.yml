@@ -1,0 +1,12 @@
+app:
+  id: spring-dynamic-injection
+apollo:
+  meta: http://123.162.53.46:8086
+  bootstrap:
+    namespaces: application
+    eagerLoad:
+      enabled: true
+    enabled: true
+  cluster: TEST
+  access-key:
+    secret: 36511e55cd3a45e680972dd119359ca9

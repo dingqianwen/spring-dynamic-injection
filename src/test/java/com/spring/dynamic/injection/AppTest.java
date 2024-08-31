@@ -1,5 +1,6 @@
 package com.spring.dynamic.injection;
 
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import com.spring.dynamic.injection.annotation.DynamicInjection;
 import com.spring.dynamic.injection.service.OrderService;
 import lombok.SneakyThrows;
@@ -8,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.MDC;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -17,20 +19,27 @@ import java.util.UUID;
 /**
  * Unit test for simple App.
  */
+@EnableApolloConfig
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = App.class)
 @ActiveProfiles("local")
 public class AppTest {
 
-    @DynamicInjection(value = "${order-service.impl:orderServiceEsImpl}")
+    @DynamicInjection(value = "${order-service.impl}")
     private OrderService orderService;
+    @Value("${order-service.impl:}")
+    private String value;
 
     @SneakyThrows
     @Test
     public void test() {
-        String result = this.orderService.query();
-        log.info("调用完毕：" + result);
+        log.info("配置：" + value);
+        while (true) {
+            String result = this.orderService.query();
+            log.info("调用完毕：" + result);
+            Thread.sleep(2000);
+        }
     }
 
     @Before
