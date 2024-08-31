@@ -1,7 +1,7 @@
 app:
   id: spring-dynamic-injection
 apollo:
-  meta: http://123.162.53.46:8086
+  meta: http://dingqw.com:8086
   bootstrap:
     namespaces: application
     eagerLoad:
