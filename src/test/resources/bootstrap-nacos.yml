@@ -1,8 +1,6 @@
 spring:
   application:
     name: spring-dynamic-injection
-  main:
-    allow-bean-definition-overriding: true
   cloud:
     nacos:
       config:
