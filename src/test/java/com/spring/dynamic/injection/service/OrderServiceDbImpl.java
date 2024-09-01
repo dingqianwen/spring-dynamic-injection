@@ -14,6 +14,6 @@ import org.springframework.stereotype.Service;
 public class OrderServiceDbImpl implements OrderService {
     @Override
     public String query() {
-        return "查询DB结果";
+        return "查询DB结果:" + this;
     }
 }

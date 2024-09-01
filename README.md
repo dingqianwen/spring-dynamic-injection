@@ -42,18 +42,28 @@ public class AppTest {
 
 `@DynamicInjection`注解有以下两个方法
 
-| 方法       | 默认值  | 说明                                                                                                                                                                                                        |
-|----------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| value    |      | 指定使用哪个实现类 `@DynamicInjection(value = "orderServiceEsImpl")` 等效于`@Resource`或者`@Autowired @Qualifier("orderServiceEsImpl")`，如果是`${}`的形式，直接从配置文件中获取，例如：`@DynamicInjection(value = "${order-service.impl:默认值}")` |
-| required | `true` | 如果设置为`true`，启动时找不到`Bean`注入，抛出异常                                                                                                                                                                           |
+| 方法       | 默认值    | 说明                                                                                                                                                                                                           |
+|----------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| value    |        | 指定使用哪个实现类 `@DynamicInjection(value = "orderServiceEsImpl")` 等效于`@Resource`或者`@Autowired @Qualifier("orderServiceEsImpl")`，如果是`${}`的形式，直接从配置文件中获取，例如：`@DynamicInjection(value = "${order-service.impl:默认值}")` |
+| required | `true` | 如果设置为`true`，启动时找不到`Bean`注入，抛出异常                                                                                                                                                                              |
 
 ### 实现思路
 
-### 方案1
+### 策略1(默认)
 
-监听到配置文件变更时，主动为所有标记`@DynamicInjection`注解的属性注入最新配置的`Bean`
+监听到配置文件变更时，主动为所有标记`@DynamicInjection`注解的属性注入最新配置的`Bean`，
+底层缓存配置`Key`与`Field`映射关系
 
-### 方案2（本项目实现）
+### 策略2
+
+通过配置使用
+
+```text
+spring:
+  dynamic:
+    injection:
+      strategy: proxy
+```
 
 项目启动时，为所有标记`@DynamicInjection`注解的属性注入一个动态代理对象，在目标方法出发时，即时获取到具体实现类。
 

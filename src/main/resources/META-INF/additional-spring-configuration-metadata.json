@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "spring.dynamic.injection.strategy",
+      "type": "java.lang.String",
+      "description": "Description for spring.dynamic.injection.strategy.",
+      "defaultValue": "listener",
+      "enum": [
+        "proxy",
+        "listener"
+      ]
+    }
+  ]
+}

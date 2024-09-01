@@ -2,6 +2,7 @@ package com.spring.dynamic.injection;
 
 import com.spring.dynamic.injection.annotation.DynamicInjection;
 import com.spring.dynamic.injection.service.OrderService;
+import com.spring.dynamic.injection.service.TestService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
@@ -20,7 +21,7 @@ import java.util.UUID;
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = App.class)
-@ActiveProfiles("nacos")
+@ActiveProfiles("apollo")
 public class AppTest {
 
     @DynamicInjection(value = "${order-service.impl}")
@@ -33,6 +34,19 @@ public class AppTest {
             String result = this.orderService.query();
             log.info("调用完毕：" + result);
             Thread.sleep(2000);
+        }
+    }
+
+    @DynamicInjection
+    private TestService testService;
+
+    @SneakyThrows
+    @Test
+    public void test2() {
+        while (true) {
+            String test = testService.test();
+            log.info("调用完毕：" + test);
+            Thread.sleep(4000);
         }
     }
 
