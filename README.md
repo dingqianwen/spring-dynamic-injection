@@ -8,22 +8,44 @@ Spring中针对接口多实现类，在运行期间通过Apollo或者Nacos配置
 
 ```java
 
-@DynamicInjection(value = "${order-service.impl:orderServiceEsImpl}")
-private OrderService orderService;
+@Slf4j
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = App.class)
+@ActiveProfiles("nacos")
+public class AppTest {
 
-@Test
-public void test() {
-    String result = this.orderService.query();
-    log.info("调用完毕：" + result);
+    /**
+     * 三个实现类如下：
+     * -OrderServiceDbImpl
+     * -OrderServiceEsImpl
+     * -OrderServiceNoImpl
+     * </p>
+     * 默认使用：orderServiceEsImpl
+     */
+    @DynamicInjection(value = "${order-service.impl:orderServiceEsImpl}")
+    private OrderService orderService;
+
+    /**
+     * 动态切换测试
+     */
+    @SneakyThrows
+    @Test
+    public void test() {
+        while (true) {
+            String result = this.orderService.query();
+            log.info("调用完毕：" + result);
+            Thread.sleep(2000);
+        }
+    }
 }
 ```
 
 `@DynamicInjection`注解有以下两个方法
 
-| 方法       | 默认值  | 说明                                                                                                                                                                                                         |
-|----------|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| value    |      | 指定使用哪个实现类 `@DynamicInjection(value = "userServiceImpl")` 等效于`@Resource`或者`@Autowired @Qualifier("userServiceImpl")`，如果是`${}`的形式，直接从配置文件中获取，例如：`@DynamicInjection(value = "${query.switch.user-service.impl:默认值}")` |
-| required | `true` | 如果设置为`true`，启动时找不到`Bean`注入，抛出异常                                                                                                                                                                            |
+| 方法       | 默认值  | 说明                                                                                                                                                                                                        |
+|----------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| value    |      | 指定使用哪个实现类 `@DynamicInjection(value = "orderServiceEsImpl")` 等效于`@Resource`或者`@Autowired @Qualifier("orderServiceEsImpl")`，如果是`${}`的形式，直接从配置文件中获取，例如：`@DynamicInjection(value = "${order-service.impl:默认值}")` |
+| required | `true` | 如果设置为`true`，启动时找不到`Bean`注入，抛出异常                                                                                                                                                                           |
 
 ### 实现思路
 

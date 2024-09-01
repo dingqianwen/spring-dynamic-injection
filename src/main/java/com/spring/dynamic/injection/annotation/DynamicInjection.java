@@ -20,9 +20,9 @@ public @interface DynamicInjection {
     /**
      * 指定使用哪个实现类，可以走配置文件，动态切换，不需要重启服务
      * <p>
-     * 如果是${}的形式，直接从配置文件中获取，例如：@DynamicInjection(value = "${query.switch.user-service.impl:默认值}")
-     * 否则，按照@DynamicInjection(value = "userServiceImpl")配置的值执行，
-     * 等效于@Resource 或者 @Autowired @Qualifier("userServiceImpl")
+     * 如果是${}的形式，直接从配置文件中获取，例如：@DynamicInjection(value = "${order-service.impl:默认值}")
+     * 否则，按照@DynamicInjection(value = "orderServiceEsImpl")配置的值执行，
+     * 等效于@Resource 或者 @Autowired @Qualifier("orderServiceEsImpl")
      *
      * @return 具体实现类，首字母小写，例如：userServiceImpl
      */
