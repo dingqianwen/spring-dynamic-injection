@@ -2,12 +2,12 @@
   "properties": [
     {
       "name": "spring.dynamic.injection.strategy",
-      "type": "java.lang.String",
+      "type": "com.spring.dynamic.injection.enums.DynamicInjectionStrategy",
       "description": "Description for spring.dynamic.injection.strategy.",
-      "defaultValue": "listener",
+      "defaultValue": "LISTENER",
       "enum": [
-        "proxy",
-        "listener"
+        "PROXY",
+        "LISTENER"
       ]
     }
   ]

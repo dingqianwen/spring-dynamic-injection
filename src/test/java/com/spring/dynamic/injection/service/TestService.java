@@ -23,7 +23,11 @@ public class TestService {
     @DynamicInjection(value = "${order-service.impl}")
     private OrderService orderService;
 
+    @DynamicInjection(value = "${order-service.impl}")
+    private OrderService orderService2;
+
     public String test() {
+        log.info("orderService2:" + orderService2.query());
         return this.orderService.query();
     }
 
