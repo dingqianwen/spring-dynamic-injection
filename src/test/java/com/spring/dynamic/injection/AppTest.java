@@ -1,6 +1,5 @@
 package com.spring.dynamic.injection;
 
-import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import com.spring.dynamic.injection.annotation.DynamicInjection;
 import com.spring.dynamic.injection.service.OrderService;
 import lombok.SneakyThrows;
@@ -19,11 +18,10 @@ import java.util.UUID;
 /**
  * Unit test for simple App.
  */
-@EnableApolloConfig
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = App.class)
-@ActiveProfiles("local")
+@ActiveProfiles("nacos")
 public class AppTest {
 
     @DynamicInjection(value = "${order-service.impl}")
