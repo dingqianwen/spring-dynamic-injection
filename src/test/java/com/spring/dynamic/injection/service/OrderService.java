@@ -9,7 +9,5 @@ package com.spring.dynamic.injection.service;
  * @since 1.0.0
  */
 public interface OrderService {
-    default String query() {
-        return null;
-    }
+    String query();
 }
