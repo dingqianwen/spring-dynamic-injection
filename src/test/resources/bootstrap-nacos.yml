@@ -4,6 +4,7 @@ spring:
   cloud:
     nacos:
       config:
+        enabled: true
         server-addr: dingqw.com:8848
         namespace: 74f65fed-749c-41b1-9f41-4d358c197013
         extension-configs:

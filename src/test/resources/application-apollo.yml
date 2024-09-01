@@ -8,5 +8,3 @@ apollo:
       enabled: true
     enabled: true
   cluster: TEST
-  access-key:
-    secret: 36511e55cd3a45e680972dd119359ca9
