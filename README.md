@@ -67,7 +67,7 @@ spring:
       strategy: proxy
 ```
 
-项目启动时，为所有标记`@DynamicInjection`注解的属性注入一个动态代理对象，在目标方法出发时，即时获取到具体实现类。
+项目启动时，为所有标记`@DynamicInjection`注解的属性注入一个动态代理对象，在目标方法被触发时，即时获取到具体实现类。
 
 ```java
 method.invoke(this.applicationContext.getBean(implClassName),args);
