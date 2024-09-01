@@ -54,6 +54,8 @@ public class AppTest {
 监听到配置文件变更时，主动为所有标记`@DynamicInjection`注解的属性注入最新配置的`Bean`，
 底层缓存配置`Key`与`Field`映射关系
 
+> @see com.spring.dynamic.injection.config.ListenerBeanPostProcessor
+
 ### 策略2
 
 通过配置使用
@@ -72,3 +74,5 @@ method.invoke(this.applicationContext.getBean(implClassName),args);
 ```
 
 目前支持：接口多实现（JDK Proxy），多子类继承(CGLIB Proxy)
+
+> @see com.spring.dynamic.injection.config.ProxyBeanPostProcessor
