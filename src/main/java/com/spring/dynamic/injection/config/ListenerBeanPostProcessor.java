@@ -130,8 +130,8 @@ public class ListenerBeanPostProcessor implements BeanPostProcessor, Application
                 continue;
             }
             String implClassName = applicationContext.getEnvironment().getProperty(key, mapValue.getDefaultClassName());
-            Object bean = applicationContext.getBean(implClassName);
             try {
+                Object bean = applicationContext.getBean(implClassName);
                 field.set(object, bean);
             } catch (Exception e) {
                 log.error("Dynamic injection fail", e);
