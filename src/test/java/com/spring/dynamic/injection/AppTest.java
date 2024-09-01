@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.MDC;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -26,13 +25,10 @@ public class AppTest {
 
     @DynamicInjection(value = "${order-service.impl}")
     private OrderService orderService;
-    @Value("${order-service.impl:}")
-    private String value;
 
     @SneakyThrows
     @Test
     public void test() {
-        log.info("配置：" + value);
         while (true) {
             String result = this.orderService.query();
             log.info("调用完毕：" + result);
