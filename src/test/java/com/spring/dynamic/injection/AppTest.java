@@ -20,7 +20,7 @@ import java.util.UUID;
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = App.class)
-@ActiveProfiles("apollo")
+@ActiveProfiles("nacos")
 public class AppTest {
 
     @DynamicInjection(value = "${order-service.impl}")
