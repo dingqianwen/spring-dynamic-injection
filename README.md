@@ -4,7 +4,7 @@ Spring中针对接口多实现类，在运行期间通过Apollo或者Nacos配置
 
 ### 使用说明
 
-项目中需要动态切换实现类的属性增加`DynamicInjection`注解即可
+项目中需要动态切换实现类的属性增加`DynamicInjection`注解即可，使用方式如同：`@Resource`、`@Autowired`
 
 ```java
 
