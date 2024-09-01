@@ -11,7 +11,7 @@
 
     <groupId>com.spring.dynamic.injection</groupId>
     <artifactId>spring-dynamic-injection</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>spring-dynamic-injection</name>
