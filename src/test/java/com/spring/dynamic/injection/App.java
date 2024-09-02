@@ -8,14 +8,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 〈〉
  *
  * @author dingqianwen
- * @date 2024/8/31
+ * @date 2024/9/3
  * @since 1.0.0
  */
 @SpringBootApplication
 public class App {
-
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }
-
 }

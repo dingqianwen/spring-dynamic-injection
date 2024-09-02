@@ -2,9 +2,7 @@ package com.spring.dynamic.injection.listener;
 
 import com.ctrip.framework.apollo.spring.events.ApolloConfigChangeEvent;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.ApplicationListener;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.Set;
@@ -18,8 +16,6 @@ import java.util.Set;
  * @since 1.0.0
  */
 @Slf4j
-@ConditionalOnClass(name = "com.ctrip.framework.apollo.spring.events.ApolloConfigChangeEvent")
-@Component
 public class ApolloConfigListener implements ApplicationListener<ApolloConfigChangeEvent> {
 
     @Resource
