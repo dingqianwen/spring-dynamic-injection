@@ -2,7 +2,7 @@
   "properties": [
     {
       "name": "spring.dynamic.injection.strategy",
-      "type": "com.spring.dynamic.injection.enums.DynamicInjectionStrategy",
+      "type": "com.dingqw.spring.dynamic.injection.enums.DynamicInjectionStrategy",
       "description": "Description for spring.dynamic.injection.strategy.",
       "defaultValue": "LISTENER",
       "enum": [

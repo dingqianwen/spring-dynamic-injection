@@ -8,7 +8,7 @@ Spring中针对接口多实现类，在运行期间通过`Apollo`或者`Nacos`�
 
 ```xml
 <dependency>
-    <groupId>io.github.dingqianwen</groupId>
+    <groupId>com.dingqw</groupId>
     <artifactId>spring-dynamic-injection</artifactId>
     <version>1.1</version>
 </dependency>

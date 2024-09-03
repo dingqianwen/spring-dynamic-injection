@@ -9,13 +9,13 @@
         <relativePath/>
     </parent>
 
-    <groupId>io.github.dingqianwen</groupId>
+    <groupId>com.dingqw</groupId>
     <artifactId>spring-dynamic-injection</artifactId>
     <version>1.1</version>
     <packaging>jar</packaging>
 
     <name>spring-dynamic-injection</name>
-    <url>http://maven.apache.org</url>
+    <url>http://dingqw.com</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

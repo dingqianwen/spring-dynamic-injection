@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.spring.dynamic.injection.SpringDynamicAutoConfiguration
+com.dingqw.spring.dynamic.injection.SpringDynamicAutoConfiguration
